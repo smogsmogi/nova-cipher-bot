@@ -9,7 +9,8 @@
   --gold-ink: #1a1408;
   --you: #f3ecdf;
   --you-ink: #16140f;
-  font-family: Manrope, "SF Pro Text", sans-serif;
+  --cipher: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", "Noto Sans Georgian", "Noto Sans Canadian Aboriginal", "Noto Sans SC", "Noto Sans Symbols", "Noto Sans Symbols 2", sans-serif;
+  font-family: var(--cipher);
 }
 
 * {
@@ -103,8 +104,9 @@ h1 {
   padding: 12px 14px;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
-  font-size: 16px;
-  line-height: 1.45;
+  font-family: var(--cipher);
+  font-size: 18px;
+  line-height: 1.65;
 }
 
 .bot {
@@ -215,9 +217,9 @@ textarea {
   border: 1px solid var(--line);
   background: #0c0d10;
   color: var(--ink);
-  font: inherit;
+  font-family: var(--cipher);
   font-size: 16px;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 textarea::placeholder {
