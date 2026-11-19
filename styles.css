@@ -255,6 +255,15 @@ button[type="submit"]:focus-visible {
   outline-offset: 2px;
 }
 
+.stats {
+  min-height: 16px;
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
 @media (min-width: 760px) {
   body {
     display: grid;
