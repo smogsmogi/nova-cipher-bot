@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0c0d10" />
+    <title>NOVA CIPHER</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="top">
+        <p class="mark">Nova</p>
+        <h1>Cipher</h1>
+      </header>
+
+      <ol id="log" class="log" aria-live="polite"></ol>
+
+      <form id="composer" class="composer">
+        <fieldset class="mode">
+          <legend class="sr-only">Режим</legend>
+          <label class="mode-option">
+            <input type="radio" name="mode" value="encrypt" checked />
+            <span>Зашифровать</span>
+          </label>
+          <label class="mode-option">
+            <input type="radio" name="mode" value="decrypt" />
+            <span>Расшифровать</span>
+          </label>
+        </fieldset>
+
+        <div class="entry">
+          <label class="sr-only" for="text">Текст</label>
+          <textarea
+            id="text"
+            name="text"
+            rows="1"
+            placeholder="Напиши текст"
+            autocomplete="off"
+            required
+          ></textarea>
+          <button type="submit">Отправить</button>
+        </div>
+      </form>
+    </main>
+
+    <script src="cipher.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

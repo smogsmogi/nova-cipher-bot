@@ -1,0 +1,267 @@
+:root {
+  color-scheme: dark;
+  --bg: #0c0d10;
+  --panel: #14161b;
+  --line: rgba(244, 239, 230, 0.12);
+  --ink: #f4efe6;
+  --muted: #9a948a;
+  --gold: #e4c27a;
+  --gold-ink: #1a1408;
+  --you: #f3ecdf;
+  --you-ink: #16140f;
+  font-family: Manrope, "SF Pro Text", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background:
+    radial-gradient(900px 420px at 50% -10%, rgba(228, 194, 122, 0.16), transparent 60%),
+    var(--bg);
+  color: var(--ink);
+}
+
+body {
+  min-height: 100dvh;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.app {
+  width: min(440px, 100%);
+  height: 100dvh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background: rgba(20, 22, 27, 0.92);
+  border-inline: 1px solid var(--line);
+}
+
+.top {
+  padding: 20px 22px 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.mark,
+.hint {
+  margin: 0;
+}
+
+.mark {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 2px 0 0;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+}
+
+.log {
+  flex: 1;
+  margin: 0;
+  padding: 22px 18px 12px;
+  list-style: none;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.bot,
+.you {
+  display: flex;
+  flex-direction: column;
+  max-width: 86%;
+}
+
+.bubble {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0;
+  padding: 12px 14px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.bot {
+  align-self: flex-start;
+  align-items: flex-start;
+}
+
+.you {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+
+.bot .bubble {
+  background: #1c1f27;
+  border: 1px solid var(--line);
+  border-radius: 18px 18px 18px 6px;
+}
+
+.you .bubble {
+  background: var(--you);
+  color: var(--you-ink);
+  border-radius: 18px 18px 6px 18px;
+  text-align: left;
+}
+
+.bot .who,
+.you .who {
+  margin: 0 0 6px 2px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.copy {
+  margin-top: 8px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--gold);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.copy:hover,
+.copy:focus-visible {
+  text-decoration: underline;
+}
+
+.composer {
+  padding: 12px 14px 18px;
+  border-top: 1px solid var(--line);
+  background: #101217;
+}
+
+.mode {
+  display: flex;
+  gap: 6px;
+  margin: 0 0 10px;
+  padding: 0;
+  border: 0;
+}
+
+.mode-option {
+  position: relative;
+}
+
+.mode-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.mode-option span {
+  display: block;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.mode-option input:checked + span {
+  background: var(--ink);
+  color: #14140f;
+  border-color: var(--ink);
+}
+
+.mode-option input:focus-visible + span {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.entry {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+textarea {
+  flex: 1;
+  resize: none;
+  max-height: 140px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: #0c0d10;
+  color: var(--ink);
+  font: inherit;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+textarea::placeholder {
+  color: #6f6a63;
+}
+
+textarea:focus {
+  outline: 2px solid rgba(228, 194, 122, 0.7);
+  outline-offset: 1px;
+}
+
+button[type="submit"] {
+  height: 48px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 16px;
+  background: var(--gold);
+  color: var(--gold-ink);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  filter: brightness(1.05);
+}
+
+button[type="submit"]:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+@media (min-width: 760px) {
+  body {
+    display: grid;
+    place-items: center;
+    padding: 28px 0;
+  }
+
+  .app {
+    height: min(860px, calc(100dvh - 56px));
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+  }
+}
