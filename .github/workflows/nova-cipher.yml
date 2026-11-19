@@ -1,0 +1,41 @@
+name: Nova Cipher
+
+on:
+  issues:
+    types: [opened]
+  workflow_dispatch:
+    inputs:
+      text:
+        description: Текст
+        required: true
+        type: string
+      mode:
+        description: Что сделать
+        type: choice
+        options:
+          - encrypt
+          - decrypt
+        default: encrypt
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  cipher:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Зашифровать или расшифровать
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MODE: ${{ github.event_name == 'workflow_dispatch' && inputs.mode || 'auto' }}
+          TITLE: ${{ github.event.issue.title }}
+          TEXT: ${{ github.event_name == 'issues' && github.event.issue.body || inputs.text }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: python cipher.py --github
